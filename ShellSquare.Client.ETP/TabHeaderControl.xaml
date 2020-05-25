@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="ShellSquare.Client.ETP.TabHeaderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ShellSquare.Client.ETP"
+             mc:Ignorable="d" 
+             d:DesignHeight="24" d:DesignWidth="160">
+    <Border Background="Transparent"  CornerRadius="10,10,0,0" Height="24">
+        <Grid VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="30" />
+            </Grid.ColumnDefinitions>
+            <TextBlock FontSize="12" FontWeight="Bold" Margin="10,0,0,0"  Text="{Binding Tittle, RelativeSource={RelativeSource AncestorType=UserControl}}" ></TextBlock>
+            <Button Cursor="Hand" Grid.Column="1" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}" BorderThickness="0" FontWeight="Bold" FontSize="12" BorderBrush="Transparent" Background="Transparent" Padding="0" Margin="10,0,3,0" x:Name="CloseButton" Click="CloseButton_Click" Content="X" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>
